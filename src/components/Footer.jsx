@@ -81,9 +81,10 @@ const styles = {
     maxWidth: "1100px",
     margin: "0 auto",
     padding: "0 20px 40px 20px",
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-    gap: "30px",
+    display: "flex",
+    justifyContent: "space-between",
+    flexWrap: "wrap",
+    gap: "40px",
   },
   brand: {
     fontSize: "22px",
