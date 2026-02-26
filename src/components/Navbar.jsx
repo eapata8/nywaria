@@ -6,7 +6,7 @@ const linkStyle = ({ isActive }) => ({
   borderRadius: "10px",
   fontWeight: 600,
   color: isActive ? "white" : "#111",
-  background: isActive ? "#111" : "transparent",
+  background: isActive ? "#E91E63" : "transparent",
 });
 
 export default function Navbar() {
@@ -24,7 +24,7 @@ export default function Navbar() {
         }}
       >
         <Link to="/" style={{ textDecoration: "none", color: "#111" }}>
-          <div style={{ fontSize: 18, fontWeight: 900 }}>StyledByNY</div>
+          <div style={{ fontSize: 18, fontWeight: 900 }}>Nywaria</div>
           <div style={{ fontSize: 12, color: "#666" }}>Gatineau • Ottawa</div>
         </Link>
 
