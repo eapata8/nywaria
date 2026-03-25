@@ -1,3 +1,3 @@
-export default function Home() {
-  return <div style={{ padding: 20 }}>Accueil Nywaria</div>;
+export default function Contact() {
+  return <div> Heyy boo</div>;
 }

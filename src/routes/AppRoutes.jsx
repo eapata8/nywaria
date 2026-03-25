@@ -6,6 +6,7 @@ import Gallery from "../pages/Gallery";
 import Reviews from "../pages/Reviews";
 import Booking from "../pages/Booking";
 import Contact from "../pages/Contact";
+import SeedServices from "../pages/SeedServices";
 
 export default function AppRoutes() {
   return (
@@ -17,6 +18,7 @@ export default function AppRoutes() {
       <Route path="/booking" element={<Booking />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="*" element={<div style={{ padding: 20 }}>Page introuvable</div>} />
+      <Route path="/seed" element={<SeedServices />} />
     </Routes>
   );
 }
