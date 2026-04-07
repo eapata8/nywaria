@@ -1,45 +1,141 @@
+import { useState } from "react";
 import img1 from "../assets/gallery_pictures/gallery1.png";
 import img2 from "../assets/gallery_pictures/gallery2.jpeg";
 import img3 from "../assets/gallery_pictures/gallery3.jpeg";
+import { FaInstagram } from "react-icons/fa";
+
+const portfolio = [img1, img2, img3, img1, img2, img3, img2, img3];
+const tabs = ["Prestations", "Portfolio", "Avis", "Adresse"];
 
 export default function Home() {
-  const heuresOuverture = "Lundi au samedi: 10h - 19h";
-  const adresse = "Gatineau, QC J8Z 1B7";
+  const [activeTab, setActiveTab] = useState("Prestations");
+
+  const services = [
+    { nom: "Coupe Barbier", duree: "30 min", prix: "28,70 $CA" },
+    { nom: "Senior (65 ans et plus)", duree: "30 min", prix: "24,35 $CA" },
+    { nom: "Garçon (11 ans et moins)", duree: "30 min", prix: "25,22 $CA" },
+    { nom: "Coupe Clipper", duree: "30 min", prix: "20 $CA" },
+  ];
+
+  const goTo = (label) => {
+    setActiveTab(label);
+    document.getElementById(label.toLowerCase())?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   return (
-    <div style={{ padding: 20, margin: "0 auto", maxWidth: 1200 }}>
-      <h1>Bienvenue chez Nywaria</h1>
+    <main className="profile-page">
+      <aside className="profile-sidebar">
+        <button className="share-btn" aria-label="Partager le profil">↥</button>
+        <div className="avatar-wrap">
+          <img src={img1} alt="Logo Nywaria" className="avatar" />
+        </div>
+        <h1>NYWARIA</h1>
+        <p className="muted center">NYWARIA</p>
+        <p className="muted center">Gatineau</p>
 
-      <p>
-        <strong>Heures d'ouverture:</strong> {heuresOuverture}
-        <strong>  .   </strong>
-        <strong>Adresse:</strong> {adresse}{" "}
-        <a
-          style={{ color: "var(--rose)" }}
-          href="https://www.google.com/maps/dir/?api=1&destination=Gatineau,+QC+J8Z+1B7"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Afficher l'itinéraire
-        </a>
-      </p>
-
-      {/* Mini gallerie */}
-      <div className="gallery-grid">
-        <div className="gallery-item large">
-          <img src={img1} alt="Salon Nywaria - prestation principale" />
+        <div className="stats">
+          <div><span>Rendez-vous terminés</span><strong>23</strong></div>
+          <div><span>Clients servis</span><strong>13</strong></div>
         </div>
 
-        <div className="gallery-item small top">
-          <img src={img2} alt="Salon Nywaria - coiffure tresses" />
+        <section>
+          <h3>À propos de mon profil</h3>
+          <p>
+            Coiffeuse Nattes, Twists, Braids, Départ et Entretien de locs. 👑 Viens sublimer ta couronne. 🗺️ Ottawa-Gatineau.
+          </p>
+        </section>
+
+        <section>
+          <h3>Langues</h3>
+          <div className="chips">
+            <span>Anglais</span>
+            <span>Français</span>
+          </div>
+        </section>
+
+        <section>
+          <h3>Centres d'intérêt</h3>
+          <div className="chips">
+            <span>🖤 Black Lives Matter</span>
+            <span>🤝 Inclusivité</span>
+          </div>
+        </section>
+
+        <section>
+          <h3>Me trouver</h3>
+          <a href="https://www.instagram.com/nywaria/" target="_blank" rel="noreferrer" className="social-circle" aria-label="Instagram">
+            <FaInstagram />
+          </a>
+        </section>
+
+        <p className="muted center member-date">Membre depuis juil. 2025</p>
+      </aside>
+
+      <section className="profile-content">
+        <div className="section-tabs" role="tablist" aria-label="Sections du profil">
+          {tabs.map((tab) => (
+            <button
+              key={tab}
+              type="button"
+              role="tab"
+              aria-selected={activeTab === tab}
+              className={`tab-btn ${activeTab === tab ? "active" : ""}`}
+              onClick={() => goTo(tab)}
+            >
+              {tab}
+            </button>
+          ))}
         </div>
 
-        <div className="gallery-item small bottom">
-          <img src={img3} alt="Salon Nywaria - style final" />
-        </div>
-      </div>
+        <section id="prestations" className="content-block">
+          <h2>Prestations</h2>
+          <p className="muted">Ce professionnel ne fournit aucun service.</p>
+        </section>
 
-    </div>
-    
+        <section id="portfolio" className="content-block">
+          <h2>Portfolio <span className="count">28</span></h2>
+          <div className="portfolio-grid">
+            {portfolio.map((img, i) => (
+              <div key={i} className={`tile ${i === 0 ? "tile-large" : ""}`}>
+                <img src={img} alt={`Portfolio ${i + 1}`} />
+                {i === portfolio.length - 1 && <div className="overlay">+19</div>}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="avis" className="content-block">
+          <h2>Avis</h2>
+          <p className="muted">Ce professionnel n'a pas d'avis pour le moment.</p>
+        </section>
+
+        <section id="adresse" className="content-block">
+          <h2>Adresse</h2>
+          <p className="muted">Ce professionnel ne travaille dans aucun établissement.</p>
+        </section>
+
+        <section className="content-block services-like-shot">
+          <h2>Prestations</h2>
+          <div className="mini-cats">
+            {["À la une", "Combo", "Militaire", "Enfant", "Senior", "Coupe", "Rasage"].map((cat) => (
+              <button key={cat} type="button" className={`mini-cat ${cat === "À la une" ? "active" : ""}`}>
+                {cat}
+              </button>
+            ))}
+          </div>
+
+          {services.map((service) => (
+            <article key={service.nom} className="service-row">
+              <div>
+                <h3>{service.nom}</h3>
+                <p>{service.duree}</p>
+                <p>{service.prix}</p>
+              </div>
+              <button type="button" className="book-btn">Réserver</button>
+            </article>
+          ))}
+        </section>
+      </section>
+    </main>
   );
 }

@@ -7,7 +7,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <Navbar />
-      <div style={{ minHeight: "80vh", background: "var(--blanc)" }}>
+      <div style={{ minHeight: "80vh", background: "#f6f6f6" }}>
         <AppRoutes />
       </div>
       <Footer />

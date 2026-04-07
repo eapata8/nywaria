@@ -4,7 +4,7 @@
   --noir: #111111;
   --blanc: #FFFFFF;
   --gris: #F5F5F5;
-  --gris-2: #EEEEEE;
+  --gris-2: #E3E3E3;
 
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   line-height: 1.5;
@@ -18,90 +18,255 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-*{
-  box-sizing: border-box;
+*{ box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  background: #f6f6f6;
+  color: var(--noir);
+  font-family: "Poppins", system-ui, sans-serif;
 }
 
-html, body { max-width: 1200px; width: 100%; margin: 0 auto; background: var(--blanc); color: var(--noir); font-family: "Poppins", cursive; }
+#root { min-height: 100vh; }
 
-/* Liens */
-a{
-  color: inherit;
-  text-decoration: none;
-}
-a:hover{
-  color: var(--rose);
-}
+h1,h2,h3{ margin: 0 0 10px 0; line-height: 1.15; }
 
-/* Titres */
-h1,h2,h3{
-  margin: 0 0 10px 0;
-  line-height: 1.15;
-}
+a{ color: inherit; text-decoration: none; }
+a:hover{ color: var(--rose); }
 
-/* Inputs */
 input, textarea, select{
   width: 100%;
-  padding: 12px 12px;
+  padding: 12px;
   border-radius: 12px;
   border: 1px solid #ddd;
   outline: none;
   font-size: 14px;
   background: var(--blanc);
 }
-input:focus, textarea:focus, select:focus{
-  border-color: var(--rose);
-  box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.15);
-}
 
-/* Boutons */
 button{
   border: none;
   border-radius: 999px;
-  padding: 12px 16px;
-  font-weight: 800;
+  padding: 10px 16px;
+  font-weight: 700;
   background: var(--rose);
   color: var(--blanc);
   cursor: pointer;
 }
-button:hover{
-  filter: brightness(0.95);
-}
-button:disabled{
-  opacity: 0.6;
-  cursor: not-allowed;
-}
 
-.gallery-grid {
+.profile-page {
+  max-width: 1440px;
+  margin: 16px auto;
+  padding: 0 16px 24px;
   display: grid;
-  grid-template-columns: 65% 35%;
-  grid-template-rows: repeat(2, minmax(0, 1fr));
-  gap: 1.5%;
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 2.5%;
+  grid-template-columns: 360px 1fr;
+  gap: 20px;
 }
 
-.gallery-item {
+.profile-sidebar {
+  background: #efefef;
+  border-radius: 16px;
+  padding: 24px;
+  position: sticky;
+  top: 16px;
+  align-self: start;
+}
+
+.share-btn {
+  border: 1px solid #d6d6d6;
+  color: #444;
+  background: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  margin-left: auto;
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+  padding: 0;
+}
+
+.avatar-wrap {
+  width: 170px;
+  height: 170px;
+  margin: 14px auto 18px;
+  border-radius: 999px;
   overflow: hidden;
-  border-radius: 14px;
+  border: 1px solid #e3e3e3;
 }
 
-.gallery-item img {
+.avatar { width: 100%; height: 100%; object-fit: cover; }
+
+.profile-sidebar h1 {
+  font-size: 44px;
+  text-align: center;
+  margin-top: 8px;
+}
+
+.muted { color: #5b6674; font-size: 16px; }
+.center { text-align: center; }
+
+.stats { margin: 20px 0; display: grid; gap: 8px; }
+.stats div { display: flex; justify-content: space-between; font-size: 30px; }
+.stats strong { font-weight: 500; }
+
+.profile-sidebar section { margin-top: 20px; }
+.profile-sidebar h3 { font-size: 20px; margin-bottom: 8px; }
+.profile-sidebar p { font-size: 16px; line-height: 1.45; margin: 0; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips span {
+  border: 1px solid #ddd;
+  border-radius: 999px;
+  background: #f9f9f9;
+  padding: 6px 12px;
+  font-size: 15px;
+}
+
+.social-circle {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid #cfcfcf;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  background: #fff;
+}
+
+.member-date { margin-top: 26px; }
+
+.profile-content {
+  background: #f6f6f6;
+  border-radius: 12px;
+  padding: 4px 8px 24px;
+}
+
+.section-tabs {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #f6f6f6;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 6px 0 14px;
+}
+
+.tab-btn {
+  color: #1b1b1b;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 600;
+  background: transparent;
+}
+
+.tab-btn.active {
+  background: #111;
+  color: white;
+}
+
+.content-block { margin-bottom: 38px; }
+.content-block h2 { font-size: 42px; margin-bottom: 14px; }
+.content-block p { font-size: 18px; }
+
+.count {
+  color: #6e7683;
+  font-size: 18px;
+  background: #ececec;
+  border-radius: 999px;
+  padding: 2px 8px;
+  margin-left: 6px;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 170px;
+  gap: 10px;
+}
+
+.tile {
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
+}
+
+.tile-large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.tile img {
   width: 100%;
   height: 100%;
-  display: block;
   object-fit: cover;
+  display: block;
 }
 
-.large {
-  grid-area: 1 / 1 / 3 / 2;
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 46px;
+  font-weight: 800;
 }
 
-.top {
-  grid-area: 1 / 2 / 2 / 3;
+.services-like-shot {
+  background: #f5f5f5;
+  padding: 12px;
+  border-radius: 12px;
 }
 
-.bottom {
-  grid-area: 2 / 2 / 3 / 3;
+.mini-cats { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 18px; }
+.mini-cat {
+  background: transparent;
+  color: #212121;
+  padding: 0;
+  border-radius: 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.mini-cat.active {
+  color: #a0a0a0;
+}
+
+.service-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid #e4e4e4;
+}
+
+.service-row h3 { font-size: 32px; margin-bottom: 2px; }
+.service-row p { margin: 0; font-size: 27px; color: #1e1e1e; }
+.book-btn {
+  background: transparent;
+  color: #2a2a2a;
+  border: 1px solid #c7c7c7;
+  border-radius: 999px;
+  font-size: 28px;
+  padding: 10px 22px;
+}
+
+@media (max-width: 1200px) {
+  .profile-page { grid-template-columns: 1fr; }
+  .profile-sidebar { position: static; }
+  .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+  .tile-large { grid-column: span 2; grid-row: span 1; }
+}
+
+@media (max-width: 768px) {
+  .profile-sidebar h1 { font-size: 32px; }
+  .stats div { font-size: 20px; }
+  .content-block h2 { font-size: 30px; }
+  .service-row h3 { font-size: 23px; }
+  .service-row p { font-size: 18px; }
+  .book-btn { font-size: 18px; }
 }
