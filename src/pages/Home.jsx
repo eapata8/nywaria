@@ -15,7 +15,7 @@ export default function Home() {
         <strong>  .   </strong>
         <strong>Adresse:</strong> {adresse}{" "}
         <a
-          style={{ color: "blue" }}
+          style={{ color: "var(--rose)" }}
           href="https://www.google.com/maps/dir/?api=1&destination=Gatineau,+QC+J8Z+1B7"
           target="_blank"
           rel="noopener noreferrer"
@@ -27,15 +27,15 @@ export default function Home() {
       {/* Mini gallerie */}
       <div className="gallery-grid">
         <div className="gallery-item large">
-          <img src={img1} />
+          <img src={img1} alt="Salon Nywaria - prestation principale" />
         </div>
 
         <div className="gallery-item small top">
-          <img src={img2} />
+          <img src={img2} alt="Salon Nywaria - coiffure tresses" />
         </div>
 
         <div className="gallery-item small bottom">
-          <img src={img3} />
+          <img src={img3} alt="Salon Nywaria - style final" />
         </div>
       </div>
 

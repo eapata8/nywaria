@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { FaInstagram, FaTiktok, FaEnvelope } from "react-icons/fa";
 
 export default function Footer() {
@@ -22,11 +23,11 @@ export default function Footer() {
         {/* Navigation */}
         <div>
           <h3 style={styles.title}>Navigation</h3>
-          <a href="/" style={styles.link}>Accueil</a>
-          <a href="/services" style={styles.link}>Services & Prix</a>
-          <a href="/gallery" style={styles.link}>Galerie</a>
-          <a href="/reviews" style={styles.link}>Avis</a>
-          <a href="/contact" style={styles.link}>Contact</a>
+          <Link to="/" style={styles.link}>Accueil</Link>
+          <Link to="/services" style={styles.link}>Services & Prix</Link>
+          <Link to="/gallery" style={styles.link}>Galerie</Link>
+          <Link to="/reviews" style={styles.link}>Avis</Link>
+          <Link to="/contact" style={styles.link}>Contact</Link>
         </div>
 
         {/* Suivez-nous */}
@@ -72,6 +73,7 @@ export default function Footer() {
 
 const styles = {
   footer: {
+    borderRadius: "10px",
     background: "#111111",
     color: "white",
     paddingTop: "40px",

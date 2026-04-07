@@ -1,4 +1,3 @@
-// a redisigner pas tres beau
 export default function Section({
   titre,
   sousTitre,
