@@ -25,18 +25,12 @@ export default function Home() {
   return (
     <main className="profile-page">
       <aside className="profile-sidebar">
-        <button className="share-btn" aria-label="Partager le profil">↥</button>
         <div className="avatar-wrap">
           <img src={img1} alt="Logo Nywaria" className="avatar" />
         </div>
         <h1>NYWARIA</h1>
         <p className="muted center">NYWARIA</p>
         <p className="muted center">Gatineau</p>
-
-        <div className="stats">
-          <div><span>Rendez-vous terminés</span><strong>23</strong></div>
-          <div><span>Clients servis</span><strong>13</strong></div>
-        </div>
 
         <section>
           <h3>À propos de mon profil</h3>
@@ -53,13 +47,6 @@ export default function Home() {
           </div>
         </section>
 
-        <section>
-          <h3>Centres d'intérêt</h3>
-          <div className="chips">
-            <span>🖤 Black Lives Matter</span>
-            <span>🤝 Inclusivité</span>
-          </div>
-        </section>
 
         <section>
           <h3>Me trouver</h3>
@@ -68,7 +55,7 @@ export default function Home() {
           </a>
         </section>
 
-        <p className="muted center member-date">Membre depuis juil. 2025</p>
+        <p className="muted center member-date">Depuis 2023</p>
       </aside>
 
       <section className="profile-content">

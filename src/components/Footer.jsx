@@ -6,9 +6,9 @@ export default function Footer() {
 
   return (
     <footer style={styles.footer}>
-      <div style={styles.container}>
-        {/* Marque */}
-        <div>
+        <div style={styles.container}>
+          {/* Marque */}
+        <div style={styles.col}>
           <h2 style={styles.brand}>Nywaria</h2>
           <p style={styles.text}>
             Gatineau / Ottawa <br />
@@ -21,7 +21,7 @@ export default function Footer() {
         </div>
 
         {/* Navigation */}
-        <div>
+        <div style={styles.col}>
           <h3 style={styles.title}>Navigation</h3>
           <Link to="/" style={styles.link}>Accueil</Link>
           <Link to="/services" style={styles.link}>Services & Prix</Link>
@@ -31,7 +31,7 @@ export default function Footer() {
         </div>
 
         {/* Suivez-nous */}
-        <div>
+        <div style={styles.col}>
           <h3 style={styles.title}>Suivez-nous</h3>
 
           <a
@@ -82,14 +82,18 @@ const styles = {
   container: {
     maxWidth: "1100px",
     margin: "0 auto",
-    padding: "0 20px 40px 20px",
+    padding: "0 clamp(12px, 4vw, 20px) 40px",
     display: "flex",
     justifyContent: "space-between",
     flexWrap: "wrap",
-    gap: "40px",
+    gap: "clamp(20px, 4vw, 40px)",
+  },
+  col: {
+    flex: "1 1 220px",
+    minWidth: 0,
   },
   brand: {
-    fontSize: "22px",
+    fontSize: "clamp(1.2rem, 2.4vw, 1.375rem)",
     fontWeight: 900,
     marginBottom: "10px",
     color: "#E91E63",
@@ -98,10 +102,10 @@ const styles = {
     color: "#cccccc",
     lineHeight: 1.6,
     marginBottom: "20px",
-    fontSize: "14px",
+    fontSize: "clamp(0.85rem, 1.8vw, 0.9rem)",
   },
   title: {
-    fontSize: "16px",
+    fontSize: "clamp(0.95rem, 1.8vw, 1rem)",
     fontWeight: 700,
     marginBottom: "12px",
   },
@@ -110,7 +114,7 @@ const styles = {
     textDecoration: "none",
     color: "#cccccc",
     marginBottom: "8px",
-    fontSize: "14px",
+    fontSize: "clamp(0.85rem, 1.8vw, 0.9rem)",
   },
   social: {
     display: "flex",
@@ -119,17 +123,17 @@ const styles = {
     textDecoration: "none",
     color: "#cccccc",
     marginBottom: "12px",
-    fontSize: "14px",
+    fontSize: "clamp(0.85rem, 1.8vw, 0.9rem)",
   },
   cta: {
     display: "inline-block",
     background: "#E91E63",
     color: "white",
-    padding: "10px 18px",
+    padding: "clamp(8px, 1.8vw, 10px) clamp(14px, 2.4vw, 18px)",
     borderRadius: "25px",
     fontWeight: 700,
     textDecoration: "none",
-    fontSize: "14px",
+    fontSize: "clamp(0.85rem, 1.8vw, 0.9rem)",
   },
   bottom: {
     borderTop: "1px solid #222",
