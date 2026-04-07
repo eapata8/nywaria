@@ -22,16 +22,7 @@
   box-sizing: border-box;
 }
 
-html, body{
-  height: 100%;
-}
-
-body{
-  margin: 0;
-  background: var(--blanc);
-  color: var(--noir);
-  font-family: "Poppins", cursive;
-}
+html, body { max-width: 1200px; width: 100%; margin: 0 auto; background: var(--blanc); color: var(--noir); font-family: "Poppins", cursive; }
 
 /* Liens */
 a{
@@ -83,12 +74,12 @@ button:disabled{
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 20px;
-  max-width: 1200px;
+  grid-template-columns: 65% 35%;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 1.5%;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 20px;
+  padding: 2.5%;
 }
 
 .gallery-item {
@@ -104,14 +95,13 @@ button:disabled{
 }
 
 .large {
-  grid-row: 1 / 3;
-  height: 420px;
+  grid-area: 1 / 1 / 3 / 2;
 }
 
 .top {
-  height: 200px;
+  grid-area: 1 / 2 / 2 / 3;
 }
 
 .bottom {
-  height: 200px;
+  grid-area: 2 / 2 / 3 / 3;
 }
