@@ -90,7 +90,7 @@ export function TopBar({ brandName, city, onBook, selectedServiceId }) {
       <button className="brand-mark" type="button" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
         <img src="/media/logo.png" alt={brandName} />
         <div>
-          <span>{brandName}</span>
+          <p>{brandName}</p>
           <small>{city}</small>
         </div>
       </button>
